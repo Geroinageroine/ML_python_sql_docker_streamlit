@@ -1,0 +1,43 @@
+version: '3'
+
+# docker-compose down
+# docker volume rm $(docker volume ls -f dangling=true -q)
+# docker-compose build & docker-compose up
+
+services:
+  python-streamlit:
+    build:
+        context: ./ML_python_streamlit_sqlalchemy
+        dockerfile: Dockerfile_Python_SQL
+    container_name: python-streamlit
+    depends_on:
+        - db
+    volumes:
+        - ./ML_python_streamlit_sqlalchemy:/usr/src/app/
+    networks:
+      - mynetwork
+    ports:
+      - "8501:8501"
+      
+  db:
+    build:
+      context: ./sql_init
+      dockerfile: Dockerfile
+    # image: mysql
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      LANG: C.UTF-8
+    volumes:
+      # - ./config/my.conf:/etc/mysql/conf.d/config-file.cnf
+      - dbdata:/var/lib/mysql
+      # Каталог docker-entrypoint-initdb.d используется для хранения скриптов оболочки или SQL, которые вы хотите выполнить при первом запуске контейнера Docker
+      # - ./sql_init:/docker-entrypoint-initdb.d
+    networks:
+      - mynetwork
+volumes:
+  dbdata: {}
+networks:
+  mynetwork:
+    driver: bridge

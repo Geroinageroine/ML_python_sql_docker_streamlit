@@ -1,0 +1,14 @@
+# pip install pipreqs
+matplotlib==3.10.0
+numpy==2.2.1
+pandas==2.2.3
+Requests==2.32.3
+scikit_learn==1.6.0
+# 7 января отвалилась сеть по всей России, пришлось качать через VPN
+# pip install SQLAlchemy-2.0.36-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl 
+SQLAlchemy==2.0.36
+streamlit==1.41.1
+tqdm==4.66.6
+wordcloud==1.9.3
+pymysql == 1.1.1
+cryptography

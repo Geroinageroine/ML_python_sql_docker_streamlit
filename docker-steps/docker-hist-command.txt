@@ -1,0 +1,164 @@
+   22  docker
+   23  curl -fsSL https://get.docker.com -o get-docker.sh
+   26  sudo sh get-docker.sh
+   27  sudo usermod -aG docker $USER
+   30  docker run ubuntu
+  161  docker ps
+  162  docker stop ae
+  163  docker stop 6c
+  164  docker ps
+  165  docker inspect 49
+  168  docker ps
+  169  docker stop 49
+  170  docker ps
+  174  docker build . -t rotorocloud/webapp
+  176  docker build . -t rotorocloud/webapp
+  177  docker --debug
+  178  docker history
+  179  docker history rotoro/webapp
+  180  docker history rotorocloud/webapp:latest
+  183  docker rm 49
+  184  docker ps -a
+  186  docker images
+  193  docker ps -a
+  194  docker ps 
+  195  docker images
+  196  docker run rotorocloud/webapp
+  197  docker run -it rotorocloud/webapp
+  198  docker build . -t rotorocloud/webapp
+  205  docker build . -t rotorocloud/webapp
+  206  docker run -it rotorocloud/webapp
+  207  docker ps -a
+  208  docker ps
+  209  docker images
+  211  docker -h
+  212  docker ps
+  213  docker run alpine
+  214  docker ps
+  215  docker pd -a
+  216  docker ps -a
+  217  docker run alpine sleep 20
+  218  docker run alpine sleep 1000
+  219  docker run alpine -d sleep 1000
+  220  docker run -d alpine sleep 1000
+  221  docker attach 6c
+  222  docker run mingrammer/flog flog -d 1 -n 500
+  223  docker ps
+  224  docker ps -a
+  225  docker ps
+  226  docker run mingrammer/flog flog -d 1 -n 500
+  227  docker run m -d mingrammer/flog flog -d 1 -n 500
+  228  docker ps
+  229  docker ps -a
+  230  docker stop 69
+  231  docker stop 6aa
+  232  docker stop aa
+  233  docker ps
+  234  docker ps -a
+  235  docker stop c13
+  236  docker ps -a
+  237  docker rm 0-9
+  238  docker rm 09
+  239  docker rm -h
+  240  docker ps -a -h
+  241  docker ps -aq
+  242  docker rm $(docker ps -aq)
+  243  docker ps -a
+  244  docker images
+  245  docker rmi alpine:latest 
+  246  docker rmi mingrammer/flog:latest 
+  247  docker images
+  248  docker pull jenkins/jenkins:lts-alpine
+  249  docker run jenkins/jenkins:lts-alpine
+  250  docker images
+  251  docker tag rotoro: ubuntu c7
+  252  docker 
+  253  docker tag c7 rotoro: ubuntu 
+  254  docker images
+  255  docker tag c7210c7fd7e1 rotoro: ubuntu 
+  256  docker images
+  257  docker rmi c7
+  258  docker ps
+  259  docker ps -a
+  260  docker rm 67
+  261  docker ps -a
+  262  docker tag c7210c7fd7e1 rotoro: ubuntu 
+  263  docker tag c7210c7fd7e1 rotoro:ubuntu 
+  264  docker tag c7 rotoro:ubuntu 
+  265  docker images
+  266  docker rmi c7
+  267  docker ps -a
+  268  docker ps -h
+  269  docker ps -q
+  270  docker ps -aq
+  271  docker rm $(docker ps -aq)
+  272  docker rmi c7
+  273  docker images
+  274  docker inspect rotorocloud/webapp:latest 
+  275  docker ubuntu
+  276  docker run ubuntu
+  277  docker ps
+  278  docker ps -a
+  279  docker run -it ubuntu
+  280  docker ps 
+  281  docker ps -a
+  287  docker info
+  295  cd docker/
+  296  sudo ls docker/
+  308  code docker-compose.yml 
+  320  docker pull mysql/my-sql-server:latest
+  321  docker pull mysql/mysql-server:latest
+  322  docker images
+  323  docker ps -a
+  324  docker rm 7d 0a
+  325  docker images
+  326  docker rmi rotorocloud/webapp:latest jenkins/jenkins:lts-alpine ubuntu:latest 
+  327  docker images
+  328  docker run --name mysql -e MYSQL_ROOT_PASSWORD=passw -e LANG=C.UTF-8 -p 3306:3306 -d mysql/mysql-server:latest
+  329  docker ps
+  330  docker exec -it mysql mysql -uroot -ppassw
+  331  docker ps
+  332  docker ps -a
+  333  docker exec -h
+  334  docker exec -it mysql -h
+  335  docker ps
+  361  docker ps 
+  362  docker ps -i
+  363  docker ps -a
+  364  docker run --name mysql -e MYSQL_ROOT_PASSWORD=passw -e LANG=C.UTF-8 -p 3306:3306 -d mysql/mysql-server:latest
+  365  docker run mysql
+  366  docker exec -h
+  367  docker ps -a
+  368  docker run 16
+  369  docker -h
+  370  docker restart zealous_jones 
+  371  docker ps 
+  372  docker ps -a
+  373  docker -h
+  374  docker start zealous_jones 
+  375  docker ps -a
+  376  docker ps 
+  377  docker start mysql 
+  378  docker ps
+  393  docker ps
+  394  docker stop 16
+  395  docker ps -a
+  396  docker start 16
+  397  docker ps
+  400  docker ps -a
+  401  docker start 16
+  402  docker ps
+  403  docker start 16
+  415  docker start 16
+  422  docker start 16
+  427  docker start 16
+  440  docker start 16
+  457  docker build -t streamlit .
+  458  docker images
+  459  docker ps
+  460  docker ps -a
+  461  docker ps
+  462  docker run -p 8501:8501 streamlit
+  463  docker ps
+  464  history | grep docker
+  465  history | grep docker > docker-hist-command.txt

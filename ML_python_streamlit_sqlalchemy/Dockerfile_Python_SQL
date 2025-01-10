@@ -1,0 +1,25 @@
+# https://docs.streamlit.io/deploy/tutorials/docker
+# Устанавливает базовый образ (т. е. ОС) для контейнера на Линуксе
+FROM python:3.12
+
+# Инструкция  WORKDIR устанавливает рабочий каталог для любых  инструкций RUN, ENTRYPOINT,  COPY которые следуют за ней в  Dockerfile
+WORKDIR /app
+
+# Зависимости для MySQL для связи с Python
+RUN apt-get update && apt-get install -y \
+    libsasl2-dev \
+    libldap2-dev \
+    libssl-dev
+
+# Пакеты для Python
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+# копировании кода вашего приложения из любого места на вашем сервере в контейнер
+COPY . .
+
+# Инструкция  EXPOSE сообщает Docker, что контейнер прослушивает указанные сетевые порты во время выполнения. Ваш контейнер должен прослушивать порт Streamlit (по умолчанию) 8501
+EXPOSE 8501
+
+# Позволяет  ENTRYPOINT настроить контейнер, который будет работать как исполняемый файл. Здесь он также содержит всю streamlit run команду для вашего приложения, поэтому вам не нужно вызывать его из командной строки
+ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]

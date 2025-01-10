@@ -1,0 +1,25 @@
+# -- docker загрузка на ОС
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+
+# -- docker образ SQL https://qa.crtweb.ru/docs/testing/local_database/
+docker pull mysql/mysql-server:latest
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=passw -e LANG=C.UTF-8 -p 3306:3306 -d mysql/mysql-server:latest
+docker exec -it mysql mysql -uroot -ppassw
+    CREATE USER 'dba'@'localhost' IDENTIFIED BY 'dbaPass';
+    GRANT ALL PRIVILEGES ON *.* TO 'dba'@'localhost' WITH GRANT OPTION;
+    CREATE USER 'dba'@'%' IDENTIFIED BY 'dbaPass';
+    GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
+    # -- когда у СУБД несколько хозяев и всем нужнобыть суперпользователями. В MySQL добавитьпользователя с root-правами *.* можно добавить
+    # -- %, обозначающий любой (любые) символы
+    # -- hh база данных
+
+    CREATE DATABASE hh;
+    exit
+    # -- Затем добавляем данные в таблицу hh.vacantion в Python-программе через  SQLAlchemy
+
+# -- docker Python + Streamlit 
+docker build -t streamlit .
+docker run -d -p 8501:8501 streamlit
